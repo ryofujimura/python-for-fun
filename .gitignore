@@ -1,0 +1,8 @@
+# stupid files
+**/*.zip
+**/*.pdf
+**/*.class
+**/*.doc
+**/*.docx
+**/*.xlsx
+**/*.DS_Store
