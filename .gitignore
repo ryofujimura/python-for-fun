@@ -6,3 +6,4 @@
 **/*.docx
 **/*.xlsx
 **/*.DS_Store
+*.pyc

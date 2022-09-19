@@ -4,8 +4,8 @@ import sys
 import glob
 
 # # giving directory name
-dirname = '/Volumes/OREnoPIC/2015-2018/'
-newdir = '/Volumes/OREnoPIC/2015-2018/deletedfiles/'
+dirname = '/nofilefound/Volumes/OREnoPIC/2015-2018/'
+newdir = '/nofilefound/Volumes/OREnoPIC/2015-2018/deletedfiles/'
 # # giving file extension
 
 ext = ('m4v', 'jpg','mp4')
