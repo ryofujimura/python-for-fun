@@ -1,15 +1,10 @@
-"""
+'''
+bot to post images to instagram
 
-"""
-import cv2
-import requests 
+'''
+from instabot import Bot
+bot = Bot()
 
-def main():
-    src = cv2.imread("shohei.jpg")
-    cv2.imshow("src", src)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-    
-if __name__ == "__main__":
-    main()
+bot.login(username = "ryofuji.dev", password = "176999Ryo")
 
+bot.upload_photo("one.jpg", caption="post by bot")
