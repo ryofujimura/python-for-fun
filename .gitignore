@@ -1,5 +1,6 @@
 # stupid files
 **/*.zip
+**/*.png
 **/*.pdf
 **/*.class
 **/*.doc
