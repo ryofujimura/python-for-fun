@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- add style.css -->
+    <link rel="stylesheet" href="style.css">
+<html> 
+    <head>
+        <title>Text Loop</title>
+        <script src="java.js"></script>
+    </head>
+    <body>
+        <div>
+            <p hidden>one</p>
+            <p hidden>two</p>
+            <p hidden>three</p>
+        </div>
+        
+        <script>
+            const div = document.querySelector("div");
+            const ps = div.querySelectorAll("p");
+            let i = 0;
+        
+            function show() {
+                const p = ps[i];
+                p.removeAttribute("hidden");
+                setTimeout(() => {
+                    p.setAttribute("hidden", true);
+                    i = (i + 1) % ps.length;
+                    show();
+                }, 2000);
+            }
+            show();
+        </script>
+    </body>
+</html>
+
+

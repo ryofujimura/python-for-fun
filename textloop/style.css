@@ -1,0 +1,25 @@
+div {
+    overflow: hidden;
+  }
+  
+  p {
+    animation: anim 2s ease-in-out forwards;
+  }
+  
+  @keyframes anim {
+    0% {
+      opacity: 0;
+      translate: 0 1em;
+    }
+    10%, 90% {
+      opacity: 1;
+      translate: 0;
+    }
+    100% {
+      opacity: 0;
+      translate: 0 -1em;
+    }
+  }
+  .hidden {
+    display: none;
+  }
