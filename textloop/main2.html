@@ -1,0 +1,90 @@
+<style>
+  #scroll-to-top {
+    background-color: black;
+    z-index: 99;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  #scroll-to-top svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  #scroll-to-top.show {
+        opacity: 0.4;
+  }
+        
+  #scroll-to-top:hover {
+    opacity: 1;
+  }
+
+</style>
+
+<button id="scroll-to-top" onclick="scrollToTop()" >
+  <svg viewBox="0 0 100 100">
+    <style>
+      .st1 {
+        fill: none;
+        stroke: #f5f5f5;
+        stroke-width: 7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+      }
+
+    </style>
+    <polyline class="st1" points="72,57 50,35 28,57 " />
+  Sorry, your browser does not support inline SVG.
+</svg>
+</button>
+
+    <div style="height: 2500px; background-color: #f2f2f2;"></div> 
+
+<footer style="height: 1vh; background-color: #ddd;"></footer>
+
+<script>
+  const scrollToTopButton = document.querySelector('#scroll-to-top');
+  const footer = document.querySelector('footer');
+  const docHeight = document.body.offsetHeight;
+  const windowHeight = window.innerHeight;
+  const scrollEnd = docHeight - windowHeight - 0.04 * windowHeight;
+
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 0) {
+      scrollToTopButton.classList.add('show');
+    } else {
+      scrollToTopButton.classList.remove('show');
+    }
+
+    // stop the button 4vw from the bottom
+    if (currentScrollY >= scrollEnd && currentScrollY < (docHeight - footer.offsetHeight - windowHeight - 0.09 * windowHeight)) {
+      scrollToTopButton.style.bottom = '3vw';
+    } else if (currentScrollY >= (docHeight - footer.offsetHeight - windowHeight - 0.09 * windowHeight)) {
+      scrollToTopButton.style.bottom = footer.offsetHeight + 0.09 * windowHeight + 'px';
+    } else {
+      scrollToTopButton.style.bottom = '20px';
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  // Listen for the 'scroll' event and show/hide the button accordingly
+  window.addEventListener('scroll', handleScroll);
+</script>
