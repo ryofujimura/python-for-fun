@@ -1,36 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- add style.css -->
-    <link rel="stylesheet" href="style.css">
-<html> 
-    <head>
-        <title>Text Loop</title>
-        <script src="java.js"></script>
-    </head>
-    <body>
-        <div>
-            <p hidden>one</p>
-            <p hidden>two</p>
-            <p hidden>three</p>
-        </div>
-        
-        <script>
-            const div = document.querySelector("div");
-            const ps = div.querySelectorAll("p");
-            let i = 0;
-        
-            function show() {
-                const p = ps[i];
-                p.removeAttribute("hidden");
-                setTimeout(() => {
-                    p.setAttribute("hidden", true);
-                    i = (i + 1) % ps.length;
-                    show();
-                }, 2000);
-            }
-            show();
-        </script>
-    </body>
-</html>
+<style>
+    #topButton {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    }
+
+    #topButton:hover {
+        motion-rotation: 3turn;
+        background-color: #f5f5f5;
+    }
+    
+</style>
+
+<!-- create a button with embedded top.svg -->
+<button onclick="topFunction()" id="topButton" title="Go to top">
+    <?xml version="1.0" encoding="utf-8"?>
+    <!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" width="24" height="24">
+    <style type="text/css">
+        .st0{fill:none;stroke:#222222;stroke-width:5;stroke-miterlimit:10;}
+        .st1{fill:none;stroke:#222222;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+        .st2{font-family:'MyriadPro-Regular';}
+        .st3{font-size:12px;}
+        .st4{letter-spacing:33;}
+    </style>
+    <circle class="st0" cx="50" cy="50" r="47"/>
+    <polyline class="st1" points="72,57 50,35 28,57 "/>
+    <text transform="matrix(1 0 0 1 -210.9826 -408.8962)"><tspan x="0" y="0" class="st2 st3">&lt;!-- &lt;!DOCTYPE html&gt;</tspan><tspan x="0" y="14.4" class="st2 st3">&lt;html lang=&quot;en&quot;&gt;</tspan><tspan x="0" y="43.2" class="st2 st3">&lt;head&gt;</tspan><tspan x="0" y="57.6" class="st2 st3 st4">	</tspan><tspan x="36" y="57.6" class="st2 st3">&lt;meta charset=&quot;utf-8&quot; /&gt;</tspan><tspan x="0" y="72" class="st2 st3 st4">	</tspan><tspan x="36" y="72" class="st2 st3">&lt;meta name=&quot;description&quot; content=&quot;&quot; /&gt;</tspan><tspan x="0" y="86.4" class="st2 st3 st4">	</tspan><tspan x="36" y="86.4" class="st2 st3">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;</tspan><tspan x="0" y="100.8" class="st2 st3 st4">	</tspan><tspan x="36" y="100.8" class="st2 st3">&lt;link rel=&quot;icon&quot; href=&quot;%svelte.assets%/favicon.png&quot; /&gt;</tspan><tspan x="0" y="115.2" class="st2 st3 st4">	</tspan><tspan x="36" y="115.2" class="st2 st3">%svelte.head%</tspan><tspan x="0" y="129.6" class="st2 st3">&lt;/head&gt;</tspan><tspan x="0" y="158.4" class="st2 st3">&lt;body&gt;</tspan><tspan x="0" y="172.8" class="st2 st3 st4">	</tspan><tspan x="36" y="172.8" class="st2 st3">&lt;div id=&quot;svelte&quot;&gt;%svelte.body%&lt;/div&gt;</tspan><tspan x="0" y="187.2" class="st2 st3">&lt;/body&gt;</tspan><tspan x="0" y="216" class="st2 st3">&lt;/html&gt; --&gt;</tspan><tspan x="0" y="244.8" class="st2 st3">&lt;!DOCTYPE html&gt;</tspan><tspan x="0" y="259.2" class="st2 st3">&lt;html&gt;</tspan><tspan x="0" y="273.6" class="st2 st3">&lt;head&gt;</tspan><tspan x="0" y="288" class="st2 st3 st4">	</tspan><tspan x="36" y="288" class="st2 st3">&lt;style&gt;</tspan><tspan x="0" y="331.2" class="st2 st3">#myBtn {</tspan><tspan x="0" y="345.6" class="st2 st3">  display: none;</tspan><tspan x="0" y="360" class="st2 st3">  position: fixed;</tspan><tspan x="0" y="374.4" class="st2 st3">  bottom: 20px;</tspan><tspan x="0" y="388.8" class="st2 st3">  right: 30px;</tspan><tspan x="0" y="403.2" class="st2 st3">  z-index: 99;</tspan><tspan x="0" y="417.6" class="st2 st3">  font-size: 18px;</tspan><tspan x="0" y="432" class="st2 st3">  border: none;</tspan><tspan x="0" y="446.4" class="st2 st3">  outline: none;</tspan><tspan x="0" y="460.8" class="st2 st3">  background-color: red;</tspan><tspan x="0" y="475.2" class="st2 st3">  color: white;</tspan><tspan x="0" y="489.6" class="st2 st3">  cursor: pointer;</tspan><tspan x="0" y="504" class="st2 st3">  padding: 15px;</tspan><tspan x="0" y="518.4" class="st2 st3">  border-radius: 4px;</tspan><tspan x="0" y="532.8" class="st2 st3">}</tspan><tspan x="0" y="561.6" class="st2 st3">#myBtn:hover {</tspan><tspan x="0" y="576" class="st2 st3">  background-color: #555;</tspan><tspan x="0" y="590.4" class="st2 st3">}</tspan><tspan x="0" y="604.8" class="st2 st3">&lt;/style&gt;</tspan><tspan x="0" y="619.2" class="st2 st3">&lt;/head&gt;</tspan><tspan x="0" y="648" class="st2 st3">&lt;button onclick=&quot;topFunction()&quot; id=&quot;myBtn&quot; title=&quot;Go to top&quot;&gt;Top&lt;/button&gt;</tspan><tspan x="0" y="676.8" class="st2 st3">&lt;!-- gray block --&gt;</tspan><tspan x="0" y="691.2" class="st2 st3">&lt;div style=&quot;background-color:lightgrey;padding:30px 30px 2500px&quot;&gt;This example &lt;/div&gt;</tspan><tspan x="0" y="720" class="st2 st3">&lt;script&gt;</tspan><tspan x="0" y="734.4" class="st2 st3 st4">	</tspan><tspan x="36" y="734.4" class="st2 st3">let mybutton = document.getElementById(&quot;myBtn&quot;);</tspan><tspan x="0" y="748.8" class="st2 st3 st4">	</tspan><tspan x="36" y="748.8" class="st2 st3">window.onscroll = function() {scrollFunction()};</tspan><tspan x="0" y="763.2" class="st2 st3 st4">	</tspan><tspan x="36" y="763.2" class="st2 st3">function scrollFunction() {</tspan><tspan x="0" y="777.6" class="st2 st3 st4">		</tspan><tspan x="72" y="777.6" class="st2 st3">if (document.body.scrollTop &gt; 20 || document.documentElement.scrollTop &gt; 20) {</tspan><tspan x="0" y="792" class="st2 st3 st4">			</tspan><tspan x="108" y="792" class="st2 st3">mybutton.style.display = &quot;block&quot;;</tspan><tspan x="0" y="806.4" class="st2 st3 st4">		</tspan><tspan x="72" y="806.4" class="st2 st3">} else {</tspan><tspan x="0" y="820.8" class="st2 st3 st4">			</tspan><tspan x="108" y="820.8" class="st2 st3">mybutton.style.display = &quot;none&quot;;</tspan><tspan x="0" y="835.2" class="st2 st3 st4">		</tspan><tspan x="72" y="835.2" class="st2 st3">}</tspan><tspan x="0" y="849.6" class="st2 st3 st4">	</tspan><tspan x="36" y="849.6" class="st2 st3">}</tspan><tspan x="0" y="864" class="st2 st3 st4">	</tspan><tspan x="36" y="864" class="st2 st3">function topFunction() {</tspan><tspan x="0" y="878.4" class="st2 st3 st4">		</tspan><tspan x="72" y="878.4" class="st2 st3">document.body.scrollTop = 0;</tspan><tspan x="0" y="892.8" class="st2 st3 st4">		</tspan><tspan x="72" y="892.8" class="st2 st3">document.documentElement.scrollTop = 0;</tspan><tspan x="0" y="907.2" class="st2 st3 st4">	</tspan><tspan x="36" y="907.2" class="st2 st3">}</tspan><tspan x="0" y="921.6" class="st2 st3">&lt;/script&gt;</tspan></text>
+    </svg>
+
+</button>
 
 
+
+<!-- gray block -->
+<div style="background-color:lightgrey;padding:30px 30px 2500px">This example </div>
+
+<script>
+	let mybutton = document.getElementById("topButton");
+	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			mybutton.style.display = "block";
+		} else {
+			mybutton.style.display = "none";
+		}
+	}
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
