@@ -36,30 +36,31 @@ class_schedule_info = {
 }
 
 
-data = {
-    "341": {
-        1: [[1200, 1215, 1230, 1245, 1300, 1315, 1330, 1345, 1400, 1415, 1430], "Friday"],
-        2: [[800, 815, 830, 845, 900, 915, 930, 945, 1000, 1015, 1030], "Saturday"]
-    },
-    "325": {
-        1: [[1800, 1815, 1830, 1845, 1900, 1915], "Monday"],
-        2: [[1700, 1715, 1730, 1745, 1800, 1815], "Tuesday"]
-    }
-}
+data = class_schedule_info
+
 
 def create_timetable(print_timetable):
+    # print(print_timetable)
     print("monday              tuesday             friday              saturday ")
     for time in print_timetable["Monday"]:
         print(str(time) + " - " + str(print_timetable["Monday"][time]) + "            " + str(time) + " - " + str(print_timetable["Tuesday"][time]) + "            " + str(time) + " - " + str(print_timetable["Friday"][time]) + "            " + str(time) + " - " + str(print_timetable["Saturday"][time]))
+
+def classlist(classes):
+    for i, classnumber in enumerate(classes):
+        print("Schedule " + str(i + 1) + ": ")
+        # print in one line
+        for j, classsection in enumerate(classnumber):
+            print("CECS "+list(data.keys())[j] + " Section "+ str(classsection))
+
+    # for i, class in enumerate(classes):
+    #     print("Schedule"
+        
 
 def reset_timetable():
     for timeslot in timetable:
         for time in timetable[timeslot]:
             timetable[timeslot][time] = 0
 
-# Initialize a list to store the combinations
-combinations = []
-value_lists = [list(data[key]) for key in data.keys()]
 
 # Recursive function to generate combinations
 def generate_combinations(current_combination, current_index):
@@ -72,17 +73,31 @@ def generate_combinations(current_combination, current_index):
         current_combination.pop()
 
 # Start generating combinations
+# generate_combinations([], 0)
+
+def schedule_class():
+    classes = []
+    for combination in combinations:
+        for i, value in enumerate(combination):
+            for time_slot in data[list(data.keys())[i]][value][0]:
+                timetable[data[list(data.keys())[i]][value][1]][time_slot] += 1
+
+        # Check if all the time slots value is less than 2
+        if all(value < 2 for value in timetable["Monday"].values()) and all(value < 2 for value in timetable["Tuesday"].values()) and all(value < 2 for value in timetable["Friday"].values()) and all(value < 2 for value in timetable["Saturday"].values()):
+            # print(timetable)
+            classes.append(combination)
+            # create_timetable(timetable)
+
+        # Reset the timetable
+        reset_timetable()
+        # print("-----------------------------------")
+    return classes
+
+combinations = []
+value_lists = [list(data[key]) for key in data.keys()]
 generate_combinations([], 0)
-
-for combination in combinations:
-    for i, value in enumerate(combination):
-        for time_slot in data[list(data.keys())[i]][value][0]:
-            timetable[data[list(data.keys())[i]][value][1]][time_slot] += 1
-    create_timetable(timetable)
-    # Reset the timetable
-    reset_timetable()
-    print("-----------------------------------")
-
+classlist(schedule_class())
+# print(schedule_class())
 
 
 
